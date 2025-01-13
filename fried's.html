@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fried's Rule Dosage Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: darkslateblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            color: #0073e6;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            color: #333;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        button {
+            background-color: #0073e6;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+            font-weight: bold;
+        }
+        .iam{
+            color: #000000;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fried's Rule Dosage Calculator</h1>
+        <div class="iam">
+      <h2>(For childern under year of 1 age)</h2></div>
+        <label for="adultDose">Adult Dose (mg):</label>
+        <input type="number" id="adultDose" placeholder="Enter adult dose" required>
+        
+        <label for="ageInMonths">Infant's Age (months):</label>
+        <input type="number" id="ageInMonths" placeholder="Enter infant's age in months" required>
+        
+        <button onclick="calculateDose()">Calculate Dose</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateDose() {
+            var adultDose = document.getElementById('adultDose').value;
+            var ageInMonths = document.getElementById('ageInMonths').value;
+            var resultText = '';
+
+            if (adultDose && ageInMonths) {
+                var friedsDose = (ageInMonths * adultDose) / 150;
+                resultText += "Fried's Rule Dose: " + friedsDose.toFixed(2) + " mg";
+            } else {
+                resultText += "Please enter both adult dose and infant's age in months.";
+            }
+
+            document.getElementById('result').innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>
