@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Young's Rule Dosage Calculator</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: darkslateblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .container:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            color: #0073e6;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            color: #333;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        button {
+            background-color: #0073e6;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+            font-weight: bold;
+        }
+        .iam{
+            color: #000000;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Young's Rule Dosage Calculator</h1>
+         <div class="iam"> 
+         <h2>(For childrens over 1 year of age upto 12 years)</h2></div> 
+        <label for="adultDose">Adult Dose (mg):</label>
+        <input type="number" id="adultDose" placeholder="Enter adult dose" required>
+        <label for="age">Child's Age (years):</label>
+        <input type="number" id="age" placeholder="Enter child's age" required>
+        <button onclick="calculateDose()">Calculate Dose</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateDose() {
+            var adultDose = parseFloat(document.getElementById('adultDose').value);
+            var age = parseFloat(document.getElementById('age').value);
+            if (!isNaN(adultDose) && !isNaN(age) && age > 0) {
+                var childDose = (age / (age + 12)) * adultDose;
+                document.getElementById('result').innerText = "Child's Dose: " + childDose.toFixed(2) + " mg";
+            } else {
+                document.getElementById('result').innerText = "Please enter valid values.";
+            }
+        }
+    </script>
+</body>
+</html>
