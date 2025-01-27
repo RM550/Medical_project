@@ -46,24 +46,31 @@
               list-style-type: disc;
           }
           .btn-container {
-              text-align: center;
-              margin: 20px 0;
+             
+        display: flex;
+        justify-content: center; /* Horizontal centering */
+        align-items: center; /* Vertical centering */
+        height: 100vh;
+            
           }
           .btn {
-              padding: 12px 25px;
-              background-color: #28a745;
-              color: white;
-              border: none;
-              border-radius: 25px;
-              cursor: pointer;
-              font-size: 18px;
-              text-decoration: none;
-              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-              transition: all 0.3s ease;
-          }
+            background-color: #4caf50; /* Green color */
+        color: white;
+        text-decoration: none;
+        font-size: 25px;
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 25px; /* Rounded corners */
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+          
           .btn:hover {
-              background-color: #218838;
-              transform: translateY(-3px);
+            background-color: #45a049; /* Darker green on hover */
+        transform: scale(1.1); /* Slight zoom effect */
+
               box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
           }
       </style>
@@ -71,10 +78,10 @@
   <body>
   
   <header>
-      Child Dose Information
+   Pharma Calculator
   </header>
   
-  <section id="child-dose">
+  <!-- <section id="child-dose">
       <h2>Child Dose Guidelines</h2>
       <p>Ensuring the right dose for children is critical for their safety and health. Always consult with a pediatrician before administering any medication. The dosage depends on factors such as age, weight, and medical condition. Follow these general guidelines:</p>
       <ul>
@@ -84,9 +91,9 @@
           <li>If unsure, consult with your healthcare provider immediately.</li>
       </ul>
   </section>
-  
+   -->
   <div class="btn-container">
-      <a href="rule pages.html" class="btn">Calculate child-dose</a>
+      <a href="rule pages.html" class="btn">Calculate your child-dose</a>
       <a href="buttons02.html" class="btn">Renal impairment dose calculation</a>
   </div>
     
